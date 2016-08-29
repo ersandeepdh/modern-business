@@ -1,0 +1,34 @@
+<!-- Page Content -->
+<div class="container">
+  <!-- Log In Form -->  
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Change Your Password</h2>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <span class='error'><%= devise_error_messages! %></span>      
+      <div class="field">
+        <%= f.label :password, "New password" %><br />
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off", :required => true %>
+        <%= f.hidden_field :reset_password_token %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, "Confirm new password" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", :required => true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Change my password", :class => "btn btn-primary" %>
+      </div>
+
+      <% end %>
+      <%= render "devise/shared/links" %>  
+    </div>
+  </div>
+  <!-- /.row -->
+  <!-- Footer -->
+  <%= render :partial => 'layouts/footer' %>
+</div>
+<!-- /.container -->
