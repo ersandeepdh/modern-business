@@ -1,9 +1,22 @@
 <!-- Page Content -->
 <div class="container">
-  <!-- Log In Form -->  
+  <!-- Page Heading/Breadcrumbs -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Log In
+        <small>Account</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a>
+        </li>
+        <li class="active">Log In</li>
+      </ol>
+    </div>
+  </div>
+  <!-- /.row -->
+  <!-- Content Row -->
   <div class="row">
     <div class="col-md-8">
-      <h3>Log In</h3>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <span class='error'><%= devise_error_messages! %></span>
       <div class="control-group form-group">
@@ -19,23 +32,22 @@
         </div>
       </div>
       <% if devise_mapping.rememberable? -%>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
       <% end -%>
       <div id="success"></div>
       <!-- For success/fail messages -->
-
       <div class="actions">
         <%= f.submit "Log in", :class=>"btn btn-primary" %>
       </div>
-
       <% end %>
       <%= render "devise/shared/links" %>
     </div>
   </div>
   <!-- /.row -->
+  <hr>
   <!-- Footer -->
   <%= render :partial => 'layouts/footer' %>
 </div>
